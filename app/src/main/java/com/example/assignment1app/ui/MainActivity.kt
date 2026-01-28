@@ -53,7 +53,14 @@ class MainActivity : AppCompatActivity() {
         return false    }
 
     private fun isBoardFull(buttons: Array<Array<Button>>): Boolean {
-        return true
+        for (row in buttons) {
+            for (button in row) {
+                if (button.text.isEmpty()) {
+                    return false
+                }
+            }
+        }
+        return true    
     }
 
     private fun showWinnerDialog(winner: String, buttons: Array<Array<Button>>) {
