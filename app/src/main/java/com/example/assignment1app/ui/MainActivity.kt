@@ -64,13 +64,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showWinnerDialog(winner: String, buttons: Array<Array<Button>>) {
-
+        AlertDialog.Builder(this)
+            .setTitle("🎉 ניצחון!")
+            .setMessage("השחקן $winner ניצח!\nרוצה לשחק שוב?")
+            .setCancelable(false)
+            .setPositiveButton("שחק שוב") { _, _ ->
+                resetBoard(buttons)
+            }
+            .setNegativeButton("יציאה") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun showDrawDialog(buttons: Array<Array<Button>>) {
-
+        AlertDialog.Builder(this)
+            .setTitle("🤝 תיקו")
+            .setMessage("אין מנצח.\nעוד סיבוב?")
+            .setCancelable(false)
+            .setPositiveButton("שחק שוב") { _, _ ->
+                resetBoard(buttons)
+            }
+            .show()
     }
-
 
     private fun resetBoard(buttons: Array<Array<Button>>) {
         for (i in 0..2) {
