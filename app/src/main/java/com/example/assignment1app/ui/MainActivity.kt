@@ -64,9 +64,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDrawDialog(buttons: Array<Array<Button>>) {
-
+        AlertDialog.Builder(this)
+            .setTitle("🤝 תיקו")
+            .setMessage("אין מנצח.\nעוד סיבוב?")
+            .setCancelable(false)
+            .setPositiveButton("שחק שוב") { _, _ ->
+                resetBoard(buttons)
+            }
+            .show()
     }
-
 
     private fun resetBoard(buttons: Array<Array<Button>>) {
 
