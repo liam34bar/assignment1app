@@ -73,6 +73,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun resetBoard(buttons: Array<Array<Button>>) {
-
+        for (i in 0..2) {
+            for (j in 0..2) {
+                board[i][j] = null
+                buttons[i][j].text = ""
+            }
+        }
+        currentPlayer = "X"
     }
 }
