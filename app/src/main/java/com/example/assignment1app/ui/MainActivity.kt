@@ -50,7 +50,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showWinnerDialog(winner: String, buttons: Array<Array<Button>>) {
-
+        AlertDialog.Builder(this)
+            .setTitle("🎉 ניצחון!")
+            .setMessage("השחקן $winner ניצח!\nרוצה לשחק שוב?")
+            .setCancelable(false)
+            .setPositiveButton("שחק שוב") { _, _ ->
+                resetBoard(buttons)
+            }
+            .setNegativeButton("יציאה") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun showDrawDialog(buttons: Array<Array<Button>>) {
